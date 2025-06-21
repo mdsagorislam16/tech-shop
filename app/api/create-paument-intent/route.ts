@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import Stripe from 'stripe'
 import prisma from '@/libs/prismadb'
 import { NextResponse } from 'next/server'
@@ -42,7 +44,7 @@ export async function POST(request: Request) {
     status: 'pending',
     deliveryStatus: 'pending',
     paymentIntentId: payment_intent_id, // use consistent naming
-    products: items,
+products: JSON.stringify(items),
   }
 
   if (payment_intent_id) {
